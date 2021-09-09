@@ -1,10 +1,14 @@
-import './App.css';
+import { OrbitControls } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import React from 'react';
 import BaseScene from './BaseScene';
+import './styles.css';
 
 const App = () => (
-  <div className="App">
+  <Canvas resize={{ scroll: true }}>
+    <OrbitControls />
     <BaseScene />
-  </div>
+  </Canvas>
 );
 
 export default App;
