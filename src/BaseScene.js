@@ -1,20 +1,27 @@
-import {
-  mesh, boxGeometry, meshBasicMaterial,
-} from '@react-three/fiber';
-import React, { useEffect } from 'react';
-// import { Color } from 'three';
+import { OrbitControls } from '@react-three/drei';
+import { useThree } from '@react-three/fiber';
+import { useEffect } from 'react';
+// import { PerspectiveCamera } from 'three';
+import Building from './Building';
 
 const BaseScene = () => {
-  // const state = useThree();
+  const camera = useThree((state) => state.camera);
+  //   const set = useThree((state) => state.set);
   useEffect(() => {
-    // state.scene.background = new Color('black');
-  },
-  []);
+    //   camera.fov = 100;
+    // set({ camera: new PerspectiveCamera(140, window.height / window.width, 0.1, 1000) });
+  }, []);
+  useEffect(() => {
+  }, [camera]);
   return (
-    <mesh>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshBasicMaterial />
-    </mesh>
+    <>
+      <boxHelper color={0xff0000}>
+        <OrbitControls />
+        <axesHelper args={[20]} />
+        <Building />
+      </boxHelper>
+
+    </>
   );
 };
 
