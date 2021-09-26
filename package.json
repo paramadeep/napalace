@@ -12,11 +12,12 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "rn-fetch-blob": "^0.12.0",
     "three": "^0.132.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "ibazel run //:start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -40,6 +41,8 @@
     ]
   },
   "devDependencies": {
+    "@bazel/bazelisk": "^1.10.1",
+    "@bazel/ibazel": "^0.15.10",
     "eslint-config-airbnb": "^18.2.1"
   }
 }

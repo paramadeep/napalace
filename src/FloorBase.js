@@ -5,7 +5,6 @@ import { useEffect } from 'react/cjs/react.development';
 import { Vector2, Shape } from 'three';
 
 const buildShape = (corners) => {
-  console.log('******************');
   const start = new Vector2(0, 0);
   const points = [start];
   corners.forEach((corner, index) => {
