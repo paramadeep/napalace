@@ -1,45 +1,40 @@
 /* eslint-disable no-console */
-import PropTypes from 'prop-types';
+import PropTypes, { arrayOf, number } from 'prop-types';
 import { useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
-import { Vector2, Shape } from 'three';
+import { Shape, Vector2 } from 'three';
 
 const buildShape = (corners) => {
-  const start = new Vector2(0, 0);
-  const points = [start];
-  corners.forEach((corner, index) => {
-    const previousCorner = points[index];
-    const x = previousCorner[0] + corner.x;
-    const y = previousCorner[0] + corner.z;
-    points.push([x, y]);
+  const points = [];
+  corners.forEach((corner) => {
+    points.push(new Vector2(corner[0], corner[1]));
   });
-  points.push(start);
-  console.log('******************');
-  console.log(points);
-  return new Shape([points]);
+  points.push(new Vector2(corners[0][0], corners[0][1]));
+  return new Shape(points);
 };
 
 const FloorBase = ({ corners }) => {
-  const [floorShape, setFloorShape] = useState(buildShape(corners));
-  const [extrusionSetting] = useState({ depth: 10 });
+  const [floorShape] = useState(buildShape(corners));
+  const [extrusionSetting] = useState({
+    depth: 4,
+    bevelEnabled: false,
+  });
   useEffect(() => {
-    console.log('******************');
-    setFloorShape(buildShape(corners));
-  }, [corners]);
+    console.log(floorShape.getPoints());
+  });
   return (
-    <mesh>
-      <extrudeGeometry args={[floorShape, extrusionSetting]} />
-      <meshBasicMaterial />
-    </mesh>
+    <>
+      <mesh>
+        <extrudeGeometry args={[floorShape, extrusionSetting]} />
+        <meshBasicMaterial />
+      </mesh>
+    </>
   );
 };
 
 FloorBase.propTypes = {
   corners: PropTypes
-    .arrayOf(PropTypes.shape({
-      x: PropTypes.number,
-      z: PropTypes.number,
-    })).isRequired,
+    .arrayOf(arrayOf(number)).isRequired,
 };
 
 export default FloorBase;

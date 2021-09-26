@@ -1,9 +1,16 @@
 export default [
   {
-    floorCorners: [{ z: 10 }, { x: 10 }],
+    floorCorners: [
+      [0, 0],
+      [10, 0],
+      [10, 5],
+      [5, 5],
+      [5, 10],
+      [0, 10],
+    ],
     floorThickness: 2,
     // allCornersHaveWall: true,
-    floorHeight: 10,
+    floorWallHeight: 10,
     wallThickness: 1,
     walls: [
       {
