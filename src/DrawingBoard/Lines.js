@@ -20,7 +20,7 @@ const Lines = ({ points }) => {
   }, [points]);
   return (
     <>
-      {lineallEdgs.map((linePoint) => <Line points={linePoint.edges} color="red" key={linePoint.id} />)}
+      {lineallEdgs.map((lineEdge) => <Line points={lineEdge.edges} color="red" key={lineEdge.id} />)}
     </>
   );
 };

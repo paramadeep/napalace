@@ -1,33 +1,28 @@
-import { Vector3 } from 'three';
-import { Plane } from '@react-three/drei';
 import {
-  useMemo, useState,
+  useReducer,
 } from 'react';
 import Lines from './Lines';
+import DistanceIndicator from './DistanceIndicator';
+import DrawingPane from './DrawingPane';
+import { actions, initialState, reducer } from './reducer';
 
 const DrawingBoard = () => {
-  const initialPoint = useMemo(() => new Vector3(0, 0, 0));
-  const [points, setPoints] = useState([initialPoint]);
-  const [endPoint, setEndPoint] = useState(initialPoint);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { points, endPoint, pointerText } = state;
   const handleMouseMove = ({ point }) => {
-    const mousePoint = new Vector3(point.x, point.y, 0);
-    setEndPoint(mousePoint);
+    dispatch({ type: actions.toNextPoint, payload: point });
   };
   const handleClick = ({ point }) => {
-    const mousePoint = new Vector3(point.x, point.y, 0);
-    setPoints((prevPoints) => [...prevPoints, mousePoint]);
+    dispatch({ type: actions.addPoint, payload: point });
   };
   return (
     <>
-      <Plane
-        args={[70, 70]}
-        onPointerMove={handleMouseMove}
+      <DrawingPane
+        onMouseMove={handleMouseMove}
         onClick={handleClick}
-        color="black"
-      >
-        <meshBasicMaterial color="black" />
-      </Plane>
+      />
       <Lines points={[...points, endPoint]} />
+      <DistanceIndicator position={endPoint} text={pointerText} />
     </>
 
   );
