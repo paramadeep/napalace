@@ -2,11 +2,9 @@ export default [
   {
     floorCorners: [
       [0, 0],
-      [10, 0],
-      [10, 5],
-      [5, 5],
-      [5, 10],
-      [0, 10],
+      [50, 0],
+      [50, 34],
+      [0, 34],
     ],
     floorThickness: 2,
     // allCornersHaveWall: true,
@@ -36,6 +34,9 @@ export default [
         x: 0,
         length: 10,
       },
+    ],
+    pillers: [
+      {},
     ],
   },
 ];

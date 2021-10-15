@@ -16,7 +16,7 @@ const buildShape = (corners) => {
 const FloorBase = ({ corners }) => {
   const [floorShape] = useState(buildShape(corners));
   const [extrusionSetting] = useState({
-    depth: 4,
+    depth: 2,
     bevelEnabled: false,
   });
   useEffect(() => {
