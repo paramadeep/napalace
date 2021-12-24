@@ -33,7 +33,9 @@ export const reducer = (state, action) => {
     }
     case actions.addPoint: {
       const newPoint = action.payload;
-      const newPointVector = new Vector3(newPoint.x, newPoint.y, 0);
+      const x = Math.round(newPoint.x);
+      const y = Math.round(newPoint.y);
+      const newPointVector = new Vector3(x, y, 0);
       return {
         ...state,
         points: [...state.points, newPointVector],

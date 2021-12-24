@@ -1,10 +1,12 @@
 import { Plane } from '@react-three/drei';
-import { func } from 'prop-types';
+import { number, func, instanceOf } from 'prop-types';
 
-const DrawingPane = ({ onMouseMove, onClick }) => (
+const DrawingPane = ({
+  height, width, onMouseMove, onClick,
+}) => (
   <>
     <Plane
-      args={[70, 70]}
+      args={[height, width]}
       onPointerMove={onMouseMove}
       onClick={onClick}
       color="black"
@@ -16,6 +18,8 @@ const DrawingPane = ({ onMouseMove, onClick }) => (
 );
 
 DrawingPane.propTypes = {
+  height: instanceOf(number).isRequired,
+  width: instanceOf(number).isRequired,
   onMouseMove: func.isRequired,
   onClick: func.isRequired,
 };

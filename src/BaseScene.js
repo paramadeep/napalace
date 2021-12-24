@@ -5,7 +5,7 @@ import DrawingBoard from './DrawingBoard';
 const BaseScene = () => {
   const camera = useThree((state) => state.camera);
   useEffect(() => {
-    camera.position.z = 100;
+    camera.position.z = 75;
   }, []);
   return (
     <>
