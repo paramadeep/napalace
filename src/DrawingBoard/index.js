@@ -4,6 +4,7 @@ import {
 import Lines from './Lines';
 import DistanceIndicator from './DistanceIndicator';
 import DrawingPane from './DrawingPane';
+import FloorPoints from '../Control';
 import { actions, initialState, reducer } from './reducer';
 
 const DrawingBoard = () => {
@@ -17,6 +18,7 @@ const DrawingBoard = () => {
   };
   return (
     <>
+      <FloorPoints />
       <DrawingPane
         onMouseMove={handleMouseMove}
         onClick={handleClick}

@@ -5,17 +5,13 @@
   "dependencies": {
     "@react-three/drei": "^7.7.0",
     "@react-three/fiber": "^7.0.6",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "@use-gesture/react": "^10.0.2",
+    "leva": "^0.9.14",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "rn-fetch-blob": "^0.12.0",
-    "three": "^0.132.2",
-    "web-vitals": "^1.0.1"
+    "three": "^0.133.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,9 +38,10 @@
     ]
   },
   "devDependencies": {
-    "@bazel/bazelisk": "^1.10.1",
-    "@bazel/ibazel": "^0.15.10",
     "@react-three/test-renderer": "^7.0.15",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "eslint-config-airbnb": "^18.2.1"
   }
 }
